@@ -1,0 +1,17 @@
+# Кодировка сервера
+AddDefaultCharset UTF-8
+
+# Включение mod_rewrite
+RewriteEngine on
+
+# Базовая директория сайта
+RewriteBase / 
+
+# Условие, при котором все существующие папки не будут обрабатываться регулярным выражением
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Условие, при котором все существующие файлы не будут обрабатываться регулярным выражением
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Единая точка входа
+RewriteRule ^(.*)$ index.php [L,QSA]
